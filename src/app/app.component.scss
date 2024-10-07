@@ -1,19 +1,39 @@
 
 mat-sidenav-container {
-    height: 100vh; // 100% de la hauteur de la vue
-    display: flex; // Utilise le modèle flexbox pour aligner les éléments
+    background-color: #1E1E1E;
+    height: 100vh;
+    width: 100vh;
+    display: flex;
+}
+
+mat-toolbar {
+    background-color: #1E1E1E;
+    color: #c8c8c8;
+}
+
+mat-sidenav {
+    background-color: #1E1E1E;
 }
 
 .sidenav {
     background-color: #1E1E1E;
     border-right: 3px solid #282828;
-    height: 1000px;
+    height: 100vh;
     width: 300px;
     padding: 10px;
     padding-top: 30px;
 }
 
+mat-sidenav-content {
+    background-color: #1E1E1E;
+    padding: 20px;
+}
+
 
 .contenuPage {
     margin: 30px;
+    width: 100vh;
+
 }
+
+

@@ -1,0 +1,19 @@
+
+mat-sidenav-container {
+    height: 100vh; // 100% de la hauteur de la vue
+    display: flex; // Utilise le modèle flexbox pour aligner les éléments
+}
+
+.sidenav {
+    background-color: #1E1E1E;
+    border-right: 3px solid #282828;
+    height: 1000px;
+    width: 300px;
+    padding: 10px;
+    padding-top: 30px;
+}
+
+
+.contenuPage {
+    margin: 30px;
+}

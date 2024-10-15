@@ -54,14 +54,6 @@ export class HistoriqueComponent {
       components: { resistor: 10},
       comp_number: 10,
       host: 'A. Dewulf',
-    },
-    {
-      date: new Date('2024-10-11'),
-      image: 'assets/historique/images/resistor.png',
-      action: 2,
-      components: { resistor: 10},
-      comp_number: 10,
-      host: 'A. Dewulf',
     }
   ];
 

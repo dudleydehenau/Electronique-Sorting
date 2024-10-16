@@ -1,0 +1,27 @@
+.class-quantity {
+  margin-left: auto;
+}
+
+.class-caracteristic {
+  margin-left: auto;
+}
+
+.image-card {
+  display: flex;
+  align-self: center;
+  margin-top: 10px;
+}
+
+.component-name {
+  font-weight: bold;
+}
+
+.component-card {
+  max-width: 150px;
+  max-height: 200px;
+  margin-bottom: 50px;
+  border-style: solid;
+  border-width: medium;
+  border-color: #282828;
+  background-color: #1e1e1e;
+}

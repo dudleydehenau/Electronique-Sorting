@@ -14,21 +14,27 @@ export class ComposantsComponent implements OnInit {
   quantity!: number;
 
   data: any[] = [];
-  // data: { Name: string }[] = [];
+
+  email: string = "";
+  password: string = "";
 
   constructor(private supabaseService: SupabaseService) {
 
   }
 
+  async login() {
+    try {
+      const user = await this.supabaseService.signIn(this.email, this.password);
+      console.log('Utilisateur connecté:', user);
+    } catch (error) {
+      console.error('Erreur lors de la connexion:', error);
+    }
+  }
 
-  async ngOnInit() {
-    this.name = "LED";
-    this.quantity = 25;
-
-    // Ici, vous spécifiez le nom de la table et de l'attribut
+  async getData() {
 
     try {
-      let response = await this.supabaseService.getDataFromTable('Compartment', 'Name');
+      let response = await this.supabaseService.getDataFromTable('Compartment', '*');
       console.log("Type de response : ", typeof(response));
       console.log('Response from Supabase:', response); // Affiche la réponse reçue brute
       
@@ -39,6 +45,8 @@ export class ComposantsComponent implements OnInit {
         // Affichage des noms dans la console
         this.data.forEach(item => {
           console.log('Name:', item.Name);
+          console.log('Location:', item.Location);
+          console.log('Id: ', item.Id);
         });
       } else {
         console.warn('No valid data received');
@@ -46,5 +54,12 @@ export class ComposantsComponent implements OnInit {
     } catch (error) {
       console.error('Error fetching data from Supabase:', error); // Affiche l'erreur si elle se produit
     }
+  }
+
+  ngOnInit() {
+    this.login();
+
+    this.getData();
+
   }
 }

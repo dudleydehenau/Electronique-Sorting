@@ -2,7 +2,13 @@
 <div>
     <ul>
         <li *ngFor="let item of data">
-          {{ item.Name }}
+          Nom : {{ item.Name }}
+        </li>
+        <li *ngFor="let item of data">
+          Location : {{ item.Location }}
+        </li>
+        <li *ngFor="let item of data">
+          Id : {{ item.Id }}
         </li>
     </ul>
 </div>

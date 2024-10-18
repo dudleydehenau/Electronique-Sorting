@@ -30,8 +30,17 @@ export class SupabaseService {
     if (data?.user) {
       this.user = data.user as User;
     }
-    
+
     return data.user;
+  }
+
+  async login() {
+    try {
+      const user = await this.signIn(environment.email_user, environment.password_user);
+      console.log('Utilisateur connecté:', user);
+    } catch (error) {
+      console.error('Erreur lors de la connexion:', error);
+    }
   }
 
   async signOut() {

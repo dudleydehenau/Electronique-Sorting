@@ -15,20 +15,8 @@ export class ComposantsComponent implements OnInit {
 
   data: any[] = [];
 
-  email: string = "";
-  password: string = "";
-
   constructor(private supabaseService: SupabaseService) {
 
-  }
-
-  async login() {
-    try {
-      const user = await this.supabaseService.signIn(this.email, this.password);
-      console.log('Utilisateur connecté:', user);
-    } catch (error) {
-      console.error('Erreur lors de la connexion:', error);
-    }
   }
 
   async getData() {
@@ -57,7 +45,7 @@ export class ComposantsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.login();
+    this.supabaseService.login();
 
     this.getData();
 

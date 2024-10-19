@@ -24,67 +24,61 @@
     </select>
 </div>
 
-<!-- date (WIP) -->
-<div *ngFor="let historic_element of historicElements" class="historic">
-    <h1>{{ historic_element.date | date: 'dd MMMM yyyy' }}</h1>
-
-    <div class="card">
+<div *ngFor="let group of groupedHistoricElements">
+    <h1>{{ group.date | date: 'dd MMMM yyyy' }}</h1>
+    
+    <div *ngFor="let historic_element of group.elements" class="historic">
+      <div class="card">
         <div class="left">
-            <!-- Image en fonction des composants (WIP) -->
-            <img [src]="historic_element.image" alt="Image composant">
+          <img [src]="historic_element.image" alt="Image composant">
         </div>
         <div class="right">
-            <div class="title-close">
-                <div class="title">
-                    <h2>{{getAction(historic_element.action)}}</h2>
-                    <!-- Affichage du texte complet ou partiel (WIP)-->
-                    <p [ngClass]="{'expanded': showMore}">
-                        {{ getComponents(historic_element.components) }}
-                        <strong *ngIf="isTextTooLong(getComponents(historic_element.components))"
-                            (click)="toggleShowMore()">
-                            {{ showMore ? 'voir moins' : 'voir plus' }}
-                        </strong>
-                    </p>
-                </div>
-                <!-- Supprimer de l'historique (WIP fonctionnalité à discuter)-->
-                <div class="close-icon">
-                    <img src="assets/historique/images/close.svg" alt="close icon">
-                </div>
+          <div class="title-close">
+            <div class="title">
+              <h2>{{getAction(historic_element.action)}}</h2>
+              <p [ngClass]="{'expanded': showMore}">
+                {{ getComponents(historic_element.components) }}
+                <strong *ngIf="isTextTooLong(getComponents(historic_element.components))"
+                        (click)="toggleShowMore()">
+                  {{ showMore ? 'voir moins' : 'voir plus' }}
+                </strong>
+              </p>
             </div>
-
-            <div class="stats-host">
-                <div class="stats">
-
-                    <ng-container *ngIf="historic_element.action === 0">
-                        <div class="stat-item">
-                            <img src="assets/historique/images/check.svg" alt="ok icon">
-                            <p>{{ historic_element.comp_number }}</p>
-                        </div>
-                        <div class="stat-item">
-                            <img src="assets/historique/images/no.svg" alt="no icon">
-                            <p>{{ historic_element.comp_not_sorted }}</p>
-                        </div>
-                    </ng-container>
-
-                    <ng-container *ngIf="historic_element.action === 1">
-                        <div class="stat-item">
-                            <img src="assets/historique/images/pack.svg" alt="pack icon">
-                            <p>{{ historic_element.comp_number }}</p>
-                        </div>
-                    </ng-container>
-
-                    <ng-container *ngIf="historic_element.action === 2">
-                        <div class="stat-item">
-                            <img src="assets/historique/images/trash.svg" alt="pack icon">
-                            <p>{{ historic_element.comp_number }}</p>
-                        </div>
-                    </ng-container>
-                </div>
-                <div class="host">
-                    <img src="assets/historique/images/profile.svg" alt="ok icon">
-                    <p>{{ historic_element.host }}</p>
-                </div>
+            <div class="close-icon">
+              <img src="assets/historique/images/close.svg" alt="close icon">
             </div>
+          </div>
+          <div class="stats-host">
+            <div class="stats">
+              <ng-container *ngIf="historic_element.action === 0">
+                <div class="stat-item">
+                  <img src="assets/historique/images/check.svg" alt="ok icon">
+                  <p>{{ historic_element.comp_number }}</p>
+                </div>
+                <div class="stat-item">
+                  <img src="assets/historique/images/no.svg" alt="no icon">
+                  <p>{{ historic_element.comp_not_sorted }}</p>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="historic_element.action === 1">
+                <div class="stat-item">
+                  <img src="assets/historique/images/pack.svg" alt="pack icon">
+                  <p>{{ historic_element.comp_number }}</p>
+                </div>
+              </ng-container>
+              <ng-container *ngIf="historic_element.action === 2">
+                <div class="stat-item">
+                  <img src="assets/historique/images/trash.svg" alt="trash icon">
+                  <p>{{ historic_element.comp_number }}</p>
+                </div>
+              </ng-container>
+            </div>
+            <div class="host">
+              <img src="assets/historique/images/profile.svg" alt="profile icon">
+              <p>{{ historic_element.host }}</p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>

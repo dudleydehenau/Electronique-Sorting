@@ -25,12 +25,10 @@ interface HistoricElement {
 
 
 export class HistoriqueComponent {
-  showMore = false;
-
   // Exemples
   historicElements: HistoricElement[] = [
     {
-      date: new Date('2024-10-10'), 
+      date: new Date('2024-10-10'),
       image: 'assets/historique/images/resistor.png',
       action: 0,
       components: { resistor: 5, led: 5, logic_door: 3},
@@ -57,18 +55,31 @@ export class HistoriqueComponent {
     }
   ];
 
+  showMore = false;
+
+  groupedHistoricElements: { date: number, elements: any[] }[] = [];
+
+  groupHistoricElementsByDate() {
+    const grouped = new Map<number, any[]>();
+  
+    this.historicElements.forEach(element => {
+      const date = element.date.getTime();
+      if (!grouped.has(date)) {
+        grouped.set(date, []);
+      }
+      grouped.get(date)?.push(element);
+    });
+  
+    this.groupedHistoricElements = Array.from(grouped, ([date, elements]) => ({ date, elements }));
+  }
+  
+  ngOnInit(): void {
+    this.groupHistoricElementsByDate();
+  }
+
   // Ajouter dynamiquement un nouvel élément (WIP)
-  addHistoricElement() {
-    const newElement = {
-      date: new Date(),  
-      image: 'assets/historique/images/led.png',  
-      action: 0,
-      components: { resistor: 10, led: 5, logic_door: 3, _74ls80: 0 },
-      comp_number: 6,
-      comp_not_sorted: 0,
-      host: 'A. Dewulffffff',
-    };
-    this.historicElements.push(newElement);
+  public addHistoricElement(element: HistoricElement) {
+    this.historicElements.push(element);
   }
 
   getComponents(components: any): string {

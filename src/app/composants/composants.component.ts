@@ -1,13 +1,25 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
+import { SupabaseService } from '../service/supabase.service';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { SupabaseService } from '../services/supabase.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatGridListModule } from '@angular/material/grid-list';
+=======
 import { SupabaseCRUDService } from '../services/supabaseCRUD.service';
+>>>>>>> 701ef33dca1a16a0c897951528795a649c8a0ddf
 
 @Component({
   selector: 'app-composants',
   standalone: true,
   imports: [CommonModule],
+  imports: [CommonModule, MatCardModule, MatChipsModule, MatGridListModule],
   templateUrl: './composants.component.html',
   styleUrls: ['./composants.component.scss']
+  styleUrls: ['./composants.component.scss'],
 })
 export class ComposantsComponent implements OnInit {
   name!: string;
@@ -15,13 +27,21 @@ export class ComposantsComponent implements OnInit {
 
   data: any[] = [];
 
+<<<<<<< HEAD
+  constructor(private supabaseService: SupabaseService) {}
+=======
   constructor(private supabaseCRUDService: SupabaseCRUDService) {
 
   }
+>>>>>>> 701ef33dca1a16a0c897951528795a649c8a0ddf
 
   async getData() {
-
     try {
+<<<<<<< HEAD
+      // Fetch data from the Component table
+      this.data = await this.supabaseService.getComponentsWithDetails();
+      console.log('Response from Component table:', this.data);
+=======
       let response = await this.supabaseCRUDService.getDataFromComponent('Compartment', '*');
       console.log("Type de response : ", typeof(response));
       console.log('Response from Supabase:', response); // Affiche la réponse reçue brute
@@ -39,8 +59,9 @@ export class ComposantsComponent implements OnInit {
       } else {
         console.warn('No valid data received');
       }
+>>>>>>> 701ef33dca1a16a0c897951528795a649c8a0ddf
     } catch (error) {
-      console.error('Error fetching data from Supabase:', error); // Affiche l'erreur si elle se produit
+      console.error('Error fetching data from Component table:', error);
     }
   }
 
@@ -60,6 +81,9 @@ export class ComposantsComponent implements OnInit {
     // this.supabaseService.login();
 
     this.getData();
+<<<<<<< HEAD
+=======
     // this.insertData();
+>>>>>>> 701ef33dca1a16a0c897951528795a649c8a0ddf
   }
 }

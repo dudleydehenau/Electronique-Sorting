@@ -1,3 +1,4 @@
+
 body {
     overflow-x: hidden;
 }
@@ -10,34 +11,32 @@ mat-sidenav-container {
 }
 
 mat-toolbar {
-    background-color: #1E1E1E;
-    color: #c8c8c8;
+  background-color: #1e1e1e;
+  color: #c8c8c8;
 }
 
 mat-sidenav {
-    background-color: #1E1E1E;
+  background-color: #1e1e1e;
 }
 
 .sidenav {
-    background-color: #1E1E1E;
-    border-right: 3px solid #282828;
-    height: 100vh;
-    width: 300px;
-    padding: 10px;
-    padding-top: 30px;
+  background-color: #1e1e1e;
+  border-right: 3px solid #282828;
+  height: 100vh;
+  width: 300px;
+  padding: 10px;
+  padding-top: 30px;
 }
 
 mat-sidenav-content {
-    background-color: #1E1E1E;
-    padding: 20px;
-    width: 100%;
+  background-color: #1e1e1e;
+  width: 75%;
+  height: 100%;
+  padding: 25px 15px 50px;
 }
-
 
 .contenuPage {
     margin: 30px;
     width: 100%;
     width: calc(100% - 60px);
 }
-
-

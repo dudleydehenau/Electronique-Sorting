@@ -1,0 +1,35 @@
+.inventaire {
+  width: 100%;
+  height: auto;
+  margin: 5px;
+}
+
+.component-card {
+  max-width: 150px;
+  max-height: 200px;
+  // margin-top: 25px;
+  // margin-bottom: 50px;
+  padding: 10px 5px 5px;
+  border-style: solid;
+  border-width: medium;
+  border-color: #282828;
+  background-color: #1e1e1e;
+}
+
+.image-card {
+  display: flex;
+  align-self: center;
+}
+
+.component-name {
+  font-weight: bold;
+  width: 100px;
+}
+
+.class-quantity {
+  margin-left: auto;
+}
+
+.class-caracteristic {
+  margin-left: auto;
+}

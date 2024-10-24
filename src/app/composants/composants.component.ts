@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SupabaseService } from '../service/supabase.service';
+import { SupabaseCRUDService } from '../services/supabaseCRUD.service';
 
 @Component({
   selector: 'app-composants',
@@ -15,14 +15,14 @@ export class ComposantsComponent implements OnInit {
 
   data: any[] = [];
 
-  constructor(private supabaseService: SupabaseService) {
+  constructor(private supabaseCRUDService: SupabaseCRUDService) {
 
   }
 
   async getData() {
 
     try {
-      let response = await this.supabaseService.getDataFromTable('Compartment', '*');
+      let response = await this.supabaseCRUDService.getDataFromComponent('Compartment', '*');
       console.log("Type de response : ", typeof(response));
       console.log('Response from Supabase:', response); // Affiche la réponse reçue brute
       
@@ -44,10 +44,22 @@ export class ComposantsComponent implements OnInit {
     }
   }
 
+  // async insertData() {
+  //   await this.supabaseService.insertDataInTable(
+  //     "Component",
+  //     2,
+  //     "Transistor de Bru",
+  //     3,
+  //     15,
+  //     301,
+  //     3
+  //   )
+  // }
+
   ngOnInit() {
-    this.supabaseService.login();
+    // this.supabaseService.login();
 
     this.getData();
-
+    // this.insertData();
   }
 }

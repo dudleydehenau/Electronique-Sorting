@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SupabaseService } from './supabase.service';
+import { SupabaseCRUDService } from './supabaseCRUD.service';
 
 describe('SupabaseService', () => {
-  let service: SupabaseService;
+  let service: SupabaseCRUDService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(SupabaseService);
+    service = TestBed.inject(SupabaseCRUDService);
   });
 
   it('should be created', () => {

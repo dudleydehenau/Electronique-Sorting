@@ -116,6 +116,25 @@ export class SupabaseCRUDService {
   //       console.error('Erreur:', error);
   //     }
   // }
+  
+  async getComponentsWithDetails() {
+    const { data, error } = await this.supabase.from('Component').select(`
+        *,
+        Feature (
+          Description,
+          Image
+        ),
+        Type (
+          Name
+        )
+      `);
 
+    if (error) {
+      console.error('Error fetching components with details:', error);
+      return [];
+    }
+
+    return data || [];
+  }
 }
 

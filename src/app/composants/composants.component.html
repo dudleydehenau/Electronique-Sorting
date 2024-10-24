@@ -1,29 +1,28 @@
-<mat-grid-list cols="5">
-  <mat-grid-tile
-    *ngFor="let tile of tiles"
-    [colspan]="tile.cols"
-    [rowspan]="tile.rows"
-  >
-    <mat-card class="component-card" appearance="outlined">
-      <img
-        mat-card-md-image
-        [src]="tile.image"
-        alt="Photo of the component"
-        class="image-card"
-      />
-      <mat-card-content>
-        <p class="component-name">{{ tile.name }}</p>
-      </mat-card-content>
-      <mat-card-footer class="component-card-footer">
-        <mat-chip-set>
-          <mat-basic-chip class="class-caracteristic">{{
-            tile.caracteristic
-          }}</mat-basic-chip>
-          <mat-basic-chip class="class-quantity">{{
-            tile.quantity
-          }}</mat-basic-chip>
-        </mat-chip-set>
-      </mat-card-footer>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="inventaire">
+  <mat-grid-list cols="5">
+    <mat-grid-tile *ngFor="let component of data">
+      <mat-card class="component-card" appearance="outlined">
+        <img
+          mat-card-md-image
+          [src]="component.Feature?.Image"
+          alt="Picture of {{ component.Type?.Name }}"
+          class="image-card"
+        />
+        <mat-card-content class="component-name">
+          <hr />
+          <p>{{ component.Type?.Name }}</p>
+        </mat-card-content>
+        <mat-card-footer class="component-card-footer">
+          <mat-chip-set>
+            <mat-basic-chip class="class-caracteristic">{{
+              component.Feature?.Description
+            }}</mat-basic-chip>
+            <mat-basic-chip class="class-quantity">{{
+              component.Quantity
+            }}</mat-basic-chip>
+          </mat-chip-set>
+        </mat-card-footer>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

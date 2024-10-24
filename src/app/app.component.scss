@@ -1,9 +1,12 @@
-
+body {
+    overflow-x: hidden;
+}
 mat-sidenav-container {
     background-color: #1E1E1E;
     height: 100vh;
     width: 100%;
     display: flex;
+    overflow: hidden; 
 }
 
 mat-toolbar {
@@ -27,13 +30,14 @@ mat-sidenav {
 mat-sidenav-content {
     background-color: #1E1E1E;
     padding: 20px;
+    width: 100%;
 }
 
 
 .contenuPage {
     margin: 30px;
     width: 100%;
-
+    width: calc(100% - 60px);
 }
 
 

@@ -9,11 +9,9 @@ import { SupabaseCRUDService } from '../services/supabaseCRUD.service';
 @Component({
   selector: 'app-composants',
   standalone: true,
-  imports: [CommonModule],
   imports: [CommonModule, MatCardModule, MatChipsModule, MatGridListModule],
   templateUrl: './composants.component.html',
   styleUrls: ['./composants.component.scss']
-  styleUrls: ['./composants.component.scss'],
 })
 export class ComposantsComponent implements OnInit {
   name!: string;

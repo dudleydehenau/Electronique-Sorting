@@ -1,0 +1,24 @@
+.boutonDemarer {
+    display: flex;
+    justify-content: center;  
+    width: 100%;          
+}
+
+.boutonTri {
+    display: flex;
+    align-items: center;
+    color: #DEB15A;
+    font-weight: bold;
+    font-size: 24px;
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        color: #deb25a55;
+    }
+
+    .material-symbols-outlined {
+        font-size: 34px;
+        margin-right: 10px; 
+    }
+}

@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SupabaseService } from '../service/supabase.service';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { SupabaseService } from '../services/supabase.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatChipsModule } from '@angular/material/chips';
@@ -8,8 +11,10 @@ import { MatGridListModule } from '@angular/material/grid-list';
 @Component({
   selector: 'app-composants',
   standalone: true,
+  imports: [CommonModule],
   imports: [CommonModule, MatCardModule, MatChipsModule, MatGridListModule],
   templateUrl: './composants.component.html',
+  styleUrls: ['./composants.component.scss']
   styleUrls: ['./composants.component.scss'],
 })
 export class ComposantsComponent implements OnInit {
